@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Service Details - Shrimant Multi Facilities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Specific styles for details page */
+    .details-hero {
+      padding: 60px 0;
+      background: var(--primary-bg);
+      text-align: center;
+    }
+    .details-content-section {
+      padding: 80px 0;
+      background: var(--secondary-bg);
+    }
+    .details-layout {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    .details-img {
+      flex: 1;
+      min-width: 300px;
+    }
+    .details-img img {
+      width: 100%;
+      border-radius: 12px;
+      border: 4px solid var(--accent-gold);
+      box-shadow: var(--shadow-lg);
+    }
+    .details-text {
+      flex: 1;
+      min-width: 300px;
+      color: var(--text-light);
+    }
+    .details-text h4 {
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+    }
+    .details-text p {
+      margin-bottom: 20px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <a href="index.html" style="display:flex; align-items:center; gap:15px; color:inherit; text-decoration:none;">
+          <img src="images/logo.jpg" alt="Shrimant Logo" onerror="this.style.display='none'"/>
+          <div class="brand-text">
+            <h1>Shrimant</h1>
+            <span>Multi Facilities & Services 79</span>
+          </div>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+      </ul>
+
+      <a href="tel:+91XXXXXXXXXX" class="btn-primary">Call Now</a>
+    </div>
+  </header>
+
+  <div id="details-container">
+    <section class="details-hero">
+      <div class="container">
+        <h2 id="service-title">Loading...</h2>
+      </div>
+    </section>
+
+    <section class="details-content-section">
+      <div class="container">
+        <div class="details-layout">
+          <div class="details-img">
+            <img id="service-image" src="" alt="Service Image">
+          </div>
+          <div class="details-text">
+            <h4 id="service-intro"></h4>
+            <div id="service-desc"></div>
+            <br>
+            <a href="tel:+91XXXXXXXXXX" class="btn-primary">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Shrimant Multi Facilities and Services 79. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
