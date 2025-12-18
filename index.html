@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shrimant Multi Facilities & Services 79</title>
   
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fonts -->
   <link rel="stylesheet" href="style.css"/>
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" data-header>
     <div class="container nav">
       <div class="brand">
         <a href="index.html" style="display:flex; align-items:center; gap:15px; color:inherit; text-decoration:none;">
@@ -30,121 +31,344 @@
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="index.html" class="nav-link-item">Home</a></li>
+        
+        <li class="dropdown-container">
+          <a href="index.html#services-slider" class="dropdown-trigger">Services <i class="fas fa-chevron-down" style="font-size:0.8em; margin-left:5px;"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="service-details.html?id=vastu">Vastu Consultant</a></li>
+            <li><a href="service-details.html?id=interior">Interior Designer</a></li>
+            <li><a href="service-details.html?id=printing">Design & Printing</a></li>
+            <li><a href="service-details.html?id=event">Event Management</a></li>
+            <li><a href="service-details.html?id=photography">Photography</a></li>
+            <li><a href="service-details.html?id=prewedding">Pre Wedding Shoots</a></li>
+            <li><a href="service-details.html?id=residence-painting">Residence Painting</a></li>
+            <li><a href="service-details.html?id=commercial-painting">Commercial Painting</a></li>
+            <li><a href="service-details.html?id=legal">Legal Advice</a></li>
+          </ul>
+        </li>
+
+        <li><a href="index.html#about" class="nav-link-item">About Us</a></li>
       </ul>
 
-      <a href="tel:+91XXXXXXXXXX" class="btn-primary">Call Now</a>
+      <a href="contact.html" class="btn-primary">Contact Us</a>
+
+      <div class="menu-btn" data-nav-toggler>
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <img src="images/logo.jpg" alt="Shrimant Logo Background" class="hero-logo-bg">
-    <div class="container">
-      <h2>Welcome to <span>Shrimant Multi Facilities</span></h2>
-      <p>Your trusted partner for specialized services including Vastu consultation, Interior Design, Event Management, and more.</p>
+  <!-- SECTION 1: SPLIT HERO (Text Left, Image Right) -->
+  <section class="home" id="home">
+    <div class="container hero-split">
+       
+       <!-- Left Text -->
+       <div class="hero-left">
+          <p class="main-subtitle">Excellence. Elegance. Efficiency.</p>
+          <h1 class="main-title">Protecting Your <br> <span style="font-style:italic; font-family:var(--font-heading);">Dream Spaces</span></h1>
+          <p class="hero-tagline">
+            Whether you're a business owner seeking commercial renovation, a family looking to build their dream home, or an individual planning a grand event, our team of experts is here to help. We specialize in transforming visions into reality.
+          </p>
+          
+
+
+          <div class="hero-btns">
+            <a href="contact.html" class="btn-primary hero-cta">Free Consultation</a>
+          </div>
+       </div>
+
+       <!-- Right Image -->
+       <div class="hero-right">
+          <img src="images/residential-painting.jpg" alt="Dream Home" class="hero-main-img">
+       </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: SLIDER (Fixed, with Heading) -->
+  <section class="hero hero-slider-section" id="services-slider" aria-label="services-slider">
+    
+    <div class="container" style="text-align: center; margin-bottom: 30px; padding-top: 50px;">
+        <h2 class="section-title">Our Services</h2>
+    </div>
+
+    <ul class="slider-list" data-hero-slider>
+
+      <!-- Slide 1: Vastu -->
+      <li class="slider-item active" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/vastu-consultant.jpg" alt="Vastu Consultant" width="1880" height="950" loading="eager">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Expert Guidance</p>
+          <h2 class="hero-title slider-reveal">Vastu Consultant Services</h2>
+          <p class="hero-text slider-reveal">
+            Bring balance, harmony, and positive energy into your residential and commercial spaces with our scientific Vastu solutions.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+            Contact Us
+          </a>
+        </div>
+      </li>
+
+      <!-- Slide 2: Interior -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/interior-design.jpg" alt="Interior Design" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Elegant Spaces</p>
+          <h2 class="hero-title slider-reveal">Premium Interior Design</h2>
+          <p class="hero-text slider-reveal">
+            Transform your home or office with our functional and aesthetic interior design services tailored to your lifestyle.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+            Contact Us
+          </a>
+        </div>
+      </li>
+
+      <!-- Slide 3: Event Management -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/event-mangment.jpg" alt="Event Management" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Memorable Events</p>
+          <h2 class="hero-title slider-reveal">Event Management</h2>
+          <p class="hero-text slider-reveal">
+            From planning to execution, we manage your personal and corporate events with precision and perfection.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+            Contact Us
+          </a>
+        </div>
+      </li>
+
+      <!-- Slide 4: Photography -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/professional-photography.jpg" alt="Photography" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Capture Moments</p>
+          <h2 class="hero-title slider-reveal">Professional Photography</h2>
+          <p class="hero-text slider-reveal">
+            High-quality photography services to capture your special moments with clarity and emotion.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+            Contact Us
+          </a>
+        </div>
+      </li>
       
-      <div class="hero-actions">
-        <a href="#services" class="btn-primary">Our Services</a>
-        <a href="tel:+91XXXXXXXXXX" class="btn-secondary">Contact Us</a>
+      <!-- Slide 5: Legal -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/legal-advisor.jpg" alt="Legal Advice" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Trusted Advice</p>
+          <h2 class="hero-title slider-reveal">Legal Advisory</h2>
+          <p class="hero-text slider-reveal">
+            Professional legal guidance and support for individuals and businesses.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+            Contact Us
+          </a>
+        </div>
+      </li>
+
+      <!-- Slide 6: Design & Printing -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/design-&-printing.jpg" alt="Design & Printing" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Creative Solutions</p>
+          <h2 class="hero-title slider-reveal">Design & Printing</h2>
+          <p class="hero-text slider-reveal">
+            High-quality graphic design and printing services for your business branding and promotional needs.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+             Contact Us
+          </a>
+        </div>
+      </li>
+
+      <!-- Slide 7: Pre Wedding Shooting -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/pre-wedding-photoshoot.jpg" alt="Pre Wedding Shooting" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Love Stories</p>
+          <h2 class="hero-title slider-reveal">Pre Wedding Shoots</h2>
+          <p class="hero-text slider-reveal">
+            Cinematic pre-wedding photography that captures the unique chemistry and anticipation of your big day.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+            Contact Us
+          </a>
+        </div>
+      </li>
+
+      <!-- Slide 8: Residence Painting -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/residential-painting.jpg" alt="Residence Painting" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Home Makeover</p>
+          <h2 class="hero-title slider-reveal">Residence Painting</h2>
+          <p class="hero-text slider-reveal">
+            Professional interior and exterior painting services to give your home a fresh, vibrant, and durable new look.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+             Contact Us
+          </a>
+        </div>
+      </li>
+
+      <!-- Slide 9: Commercial Painting -->
+      <li class="slider-item" data-hero-slider-item>
+        <div class="slider-bg">
+          <img src="images/commercial-painting.jpg" alt="Commercial Painting" width="1880" height="950" loading="lazy">
+        </div>
+        <div class="container">
+          <p class="section-subtitle slider-reveal">Business Spaces</p>
+          <h2 class="hero-title slider-reveal">Commercial Painting</h2>
+          <p class="hero-text slider-reveal">
+            Efficient and high-quality painting solutions for offices, commercial buildings, and industrial properties.
+          </p>
+          <a href="contact.html" class="btn-primary slider-reveal">
+             Contact Us
+          </a>
+        </div>
+      </li>
+
+    </ul>
+
+    <!-- Slider Controls -->
+    <button class="slider-btn prev" aria-label="Slide to previous" data-prev-btn>
+      <ion-icon name="chevron-back"></ion-icon>
+    </button>
+
+    <button class="slider-btn next" aria-label="Slide to next" data-next-btn>
+      <ion-icon name="chevron-forward"></ion-icon>
+    </button>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+            <p class="section-subtitle">Our Story</p>
+            <h3>Excellence in Every Service We Provide</h3>
+            <p>
+              Shrimant Multi Facilities & Services 79 has been a trusted name in creating beautiful spaces and memorable events. 
+              Our mission is to provide top-tier services under one roof, ensuring quality, reliability, and customer satisfaction.
+            </p>
+            
+            <div class="points-grid">
+              <div class="point">
+                <i class="fas fa-check-circle"></i>
+                <span>Experienced Team</span>
+              </div>
+              <div class="point">
+                <i class="fas fa-check-circle"></i>
+                <span>Customized Solutions</span>
+              </div>
+              <div class="point">
+                <i class="fas fa-check-circle"></i>
+                <span>Timely Delivery</span>
+              </div>
+              <div class="point">
+                <i class="fas fa-check-circle"></i>
+                <span>24/7 Support</span>
+              </div>
+            </div>
+
+            <a href="contact.html" class="btn-primary" style="margin-top: 30px;">Contact Us</a>
+        </div>
+        
+        <div class="about-image">
+            <img src="images/logo.jpg" alt="About Shrimant" class="about-img-main">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES SECTION -->
-  <section class="services" id="services">
-    <div class="container">
-      <h3>Our Services</h3>
 
-      <div class="service-grid">
-        <div class="service-card">
-          <i class="fas fa-compass fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Vastu Consultant</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-couch fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Interior Designer</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-print fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Design & Printing</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-calendar-check fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Event Management</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-camera fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Photography</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-heart fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Pre Wedding Shooting</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-paint-roller fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Residence Painting</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-building fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Commercial Painting</h4>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-gavel fa-3x" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
-          <h4>Legal Advice</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US SECTION -->
-  <section class="why-us" id="about">
-    <div class="container">
-      <h3>Why Choose Us?</h3>
-      <div class="points">
-        <div class="point-item">
-            <i class="fas fa-check-circle point-icon"></i>
-            <span class="point-text">Experienced Professionals</span>
-        </div>
-        <div class="point-item">
-            <i class="fas fa-star point-icon"></i>
-            <span class="point-text">Quality Service</span>
-        </div>
-        <div class="point-item">
-            <i class="fas fa-clock point-icon"></i>
-            <span class="point-text">On-time Delivery</span>
-        </div>
-        <div class="point-item">
-            <i class="fas fa-smile point-icon"></i>
-            <span class="point-text">Customer Satisfaction</span>
-        </div>
-        <div class="point-item">
-            <i class="fas fa-rupee-sign point-icon"></i>
-            <span class="point-text">Affordable Pricing</span>
-        </div>
-        <div class="point-item">
-            <i class="fas fa-headset point-icon"></i>
-            <span class="point-text">24/7 Support</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="cta">
-    <div class="container">
-       <h3>Ready to get started?</h3>
-       <p>Contact us today for a consultation or quote.</p>
-       <a href="tel:+91XXXXXXXXXX" class="btn-primary">Call Now</a>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Shrimant Multi Facilities and Services 79. All rights reserved.</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo-footer">
+            <img src="images/logo.jpg" alt="Shrimant Logo" class="footer-logo-img">
+            <div class="footer-brand-text">
+              <h2>Shrimant</h2>
+              <p>Multi Facilities & Services 79</p>
+            </div>
+          </a>
+          <p class="footer-text">
+            Your premium destination for Vastu, Interior Design, and Event Management.
+          </p>
+          <p class="footer-catchphrase">Your dream. Our expertise. Let's create excellence.</p>
+          <div class="social-links-centered">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Quick Links</p></li>
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="index.html#services-slider" class="footer-link">Services</a></li>
+          <li><a href="index.html#about" class="footer-link">About Us</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Company</p></li>
+          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html" class="footer-link">Terms & Conditions</a></li>
+          <li><a href="cookie-policy.html" class="footer-link">Cookie Policy</a></li>
+          <li><a href="careers.html" class="footer-link">Careers</a></li>
+        </ul>
+
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Contact & Hours</p></li>
+          <li class="footer-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <address>Tukai Nagar, Sinhag Rd, Pune - 411041</address>
+          </li>
+          <li class="footer-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:shrimantmultiservices79@gmail.com" class="footer-link">shrimantmultiservices79@gmail.com</a>
+          </li>
+          <li class="footer-item" style="margin-top: 20px;">
+            <i class="fas fa-clock"></i>
+            <div>
+              <p>Mon-Fri: 9AM - 7PM</p>
+              <p>Sat: 10AM - 5PM</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <!-- <p class="footer-accreditation">MSME Registered (Udyam) | Shop Act Certified Business</p> -->
+        <p class="copyright">
+          &copy; 2025 Shrimant Multi Facilities. All Rights Reserved.
+        </p>
+      </div>
     </div>
   </footer>
 
