@@ -174,29 +174,29 @@ const heroSliderNextBtn = document.querySelector("[data-next-btn]");
 let currentSlidePos = 0;
 let lastActiveSliderItem = heroSliderItems[0];
 
-const updateSliderPos = function() {
-    if(!lastActiveSliderItem) return;
-    lastActiveSliderItem.classList.remove("active");
-    heroSliderItems[currentSlidePos].classList.add("active");
-    lastActiveSliderItem = heroSliderItems[currentSlidePos];
+const updateSliderPos = function () {
+  if (!lastActiveSliderItem) return;
+  lastActiveSliderItem.classList.remove("active");
+  heroSliderItems[currentSlidePos].classList.add("active");
+  lastActiveSliderItem = heroSliderItems[currentSlidePos];
 }
 
-const slideNext = function() {
-    if (currentSlidePos >= heroSliderItems.length - 1) {
-        currentSlidePos = 0;
-    } else {
-        currentSlidePos++;
-    }
-    updateSliderPos();
+const slideNext = function () {
+  if (currentSlidePos >= heroSliderItems.length - 1) {
+    currentSlidePos = 0;
+  } else {
+    currentSlidePos++;
+  }
+  updateSliderPos();
 }
 
-const slidePrev = function() {
-    if (currentSlidePos <= 0) {
-        currentSlidePos = heroSliderItems.length - 1;
-    } else {
-        currentSlidePos--;
-    }
-    updateSliderPos();
+const slidePrev = function () {
+  if (currentSlidePos <= 0) {
+    currentSlidePos = heroSliderItems.length - 1;
+  } else {
+    currentSlidePos--;
+  }
+  updateSliderPos();
 }
 
 if (heroSliderNextBtn) heroSliderNextBtn.addEventListener("click", slideNext);
@@ -204,13 +204,13 @@ if (heroSliderPrevBtn) heroSliderPrevBtn.addEventListener("click", slidePrev);
 
 // Auto Slide
 let autoSlideInterval;
-const autoSlide = function() {
-    autoSlideInterval = setInterval(function () {
-        slideNext();
-    }, 7000);
+const autoSlide = function () {
+  autoSlideInterval = setInterval(function () {
+    slideNext();
+  }, 7000);
 }
 
-if(heroSliderItems.length > 0) {
+if (heroSliderItems.length > 0) {
   window.addEventListener("load", autoSlide);
 }
 
@@ -254,3 +254,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// ---------------------------------------------------------
+// SUPABASE INTEGRATION
+// ---------------------------------------------------------
+const SUPABASE_URL = 'https://nkeqstwyvsccdevfvqhv.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_1mONS9gU1kWLdVZEJ08Ruw_0Mpq89MT';
+
+// Initialize Supabase only if the library is loaded
+// Initialize Supabase
+let supabaseClient;
+if (typeof createClient !== 'undefined') {
+  supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+} else if (window.supabase) {
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm && supabaseClient) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerText;
+    submitBtn.innerText = 'Sending...';
+    submitBtn.disabled = true;
+
+    const formData = {
+      full_name: document.getElementById('fullName').value,
+      email: document.getElementById('email').value,
+      mobile: document.getElementById('mobile').value,
+      message: document.getElementById('message').value
+    };
+
+    try {
+      const { data, error } = await supabaseClient
+        .from('contacts')
+        .insert([formData]);
+
+      if (error) throw error;
+
+      alert('Thank you! Your message has been sent successfully.');
+      contactForm.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error sending your message. Please try again or contact us directly.');
+    } finally {
+      submitBtn.innerText = originalBtnText;
+      submitBtn.disabled = false;
+    }
+  });
+}
