@@ -258,6 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ---------------------------------------------------------
 // SUPABASE INTEGRATION
 // ---------------------------------------------------------
+
 const SUPABASE_URL = 'https://nkeqstwyvsccdevfvqhv.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_1mONS9gU1kWLdVZEJ08Ruw_0Mpq89MT';
 
@@ -306,3 +307,38 @@ if (contactForm && supabaseClient) {
     }
   });
 }
+
+/* =========================================
+   MOBILE NAVIGATION TOGGLE
+   ========================================= */
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggler = document.querySelector("[data-nav-toggler]");
+  const navLinks = document.querySelector(".nav-links");
+  // Ensure we get the icon, handling potential different structures
+  const menuIcon = navToggler ? navToggler.querySelector("i") : null;
+
+  if (navToggler && navLinks && menuIcon) {
+    navToggler.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+
+      // Toggle icon between bars and times (X)
+      if (navLinks.classList.contains("active")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      } else {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+      }
+    });
+
+    // Close menu when a link is clicked
+    const navItems = document.querySelectorAll(".nav-link-item");
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+      });
+    });
+  }
+});

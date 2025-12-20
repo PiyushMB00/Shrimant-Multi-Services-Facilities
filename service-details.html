@@ -1,75 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Service Details | Shrimant Multi Facilities</title>
-  
+
   <!-- Fonts -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
   </style>
-  
+
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    .details-hero {
-      height: 60vh;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .details-hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-    }
-    .details-hero h1 {
-      position: relative;
-      color: #fff;
-      font-size: 3rem;
-      z-index: 2;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-family: var(--font-heading);
-    }
-    .details-content {
-      padding: 80px 0;
-      background: var(--primary-bg);
-      color: var(--text-light);
-    }
-    .details-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .details-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-muted);
-    }
-    .details-text p {
-      margin-bottom: 20px;
-    }
-    .back-btn {
-      display: inline-block;
-      margin-top: 30px;
-      color: var(--accent-gold);
-      font-weight: 600;
-      border-bottom: 2px solid var(--accent-gold);
-      padding-bottom: 2px;
-    }
-    .back-btn:hover {
-      color: #fff;
-      border-color: #fff;
-    }
+    /* Styles moved to style.css */
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -77,7 +26,7 @@
     <div class="container nav">
       <div class="brand">
         <a href="index.html" style="display:flex; align-items:center; gap:15px; color:inherit; text-decoration:none;">
-          <img src="images/logo.jpg" alt="Shrimant Logo" onerror="this.style.display='none'"/>
+          <img src="images/logo.jpg" alt="Shrimant Logo" onerror="this.style.display='none'" />
           <div class="brand-text">
             <h1>Shrimant</h1>
             <span>Multi Facilities & Services 79</span>
@@ -87,9 +36,10 @@
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link-item">Home</a></li>
-        
+
         <li class="dropdown-container">
-          <a href="index.html#services-slider" class="dropdown-trigger">Services <i class="fas fa-chevron-down" style="font-size:0.8em; margin-left:5px;"></i></a>
+          <a href="index.html#services-slider" class="dropdown-trigger">Services <i class="fas fa-chevron-down"
+              style="font-size:0.8em; margin-left:5px;"></i></a>
           <ul class="dropdown-menu">
             <li><a href="service-details.html?id=vastu">Vastu Consultant</a></li>
             <li><a href="service-details.html?id=interior">Interior Designer</a></li>
@@ -104,6 +54,7 @@
         </li>
 
         <li><a href="index.html#about" class="nav-link-item">About Us</a></li>
+        <li class="mobile-only"><a href="contact.html" class="nav-link-item">Contact Us</a></li>
       </ul>
 
       <a href="contact.html" class="btn-primary">Contact Us</a>
@@ -126,48 +77,50 @@
   <!-- SERVICE CONTENT -->
   <section class="service-content-section">
     <div class="container service-layout">
-        
-        <!-- Sidebar -->
-        <aside class="service-sidebar">
-            <h3>All Services</h3>
-            <ul class="service-nav-list">
-                <li><a href="service-details.html?id=vastu">Vastu Consultant</a></li>
-                <li><a href="service-details.html?id=interior">Interior Designer</a></li>
-                <li><a href="service-details.html?id=printing">Design & Printing</a></li>
-                <li><a href="service-details.html?id=event">Event Management</a></li>
-                <li><a href="service-details.html?id=photography">Photography</a></li>
-                <li><a href="service-details.html?id=prewedding">Pre Wedding Shoots</a></li>
-                <li><a href="service-details.html?id=residence-painting">Residence Painting</a></li>
-                <li><a href="service-details.html?id=commercial-painting">Commercial Painting</a></li>
-                <li><a href="service-details.html?id=legal">Legal Advice</a></li>
-            </ul>
-        </aside>
 
-        <!-- Main Content -->
-        <article class="service-main">
-            <div id="service-desc" class="service-description">
-                <!-- Content injected via JS -->
-                 <p>Loading service details...</p>
-            </div>
+      <!-- Sidebar -->
+      <aside class="service-sidebar">
+        <h3>All Services</h3>
+        <ul class="service-nav-list">
+          <li><a href="service-details.html?id=vastu">Vastu Consultant</a></li>
+          <li><a href="service-details.html?id=interior">Interior Designer</a></li>
+          <li><a href="service-details.html?id=printing">Design & Printing</a></li>
+          <li><a href="service-details.html?id=event">Event Management</a></li>
+          <li><a href="service-details.html?id=photography">Photography</a></li>
+          <li><a href="service-details.html?id=prewedding">Pre Wedding Shoots</a></li>
+          <li><a href="service-details.html?id=residence-painting">Residence Painting</a></li>
+          <li><a href="service-details.html?id=commercial-painting">Commercial Painting</a></li>
+          <li><a href="service-details.html?id=legal">Legal Advice</a></li>
+        </ul>
+      </aside>
 
-            <div class="service-features-wrapper" style="margin-top: 40px;">
-                <h3 id="service-features-title" style="color:var(--accent-gold); margin-bottom: 20px; font-family: var(--font-heading);">What We Offer</h3>
-                <ul id="service-features" class="features-list" style="list-style: none; padding: 0;">
-                    <!-- Features injected via JS -->
-                </ul>
-                <p id="service-note" style="margin-top: 25px; font-style: italic; color: var(--text-muted);"></p>
-            </div>
+      <!-- Main Content -->
+      <article class="service-main">
+        <div id="service-desc" class="service-description">
+          <!-- Content injected via JS -->
+          <p>Loading service details...</p>
+        </div>
 
-            <div class="common-note-box" style="margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
-                <p id="common-note" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;"></p>
-            </div>
-            
-            <div class="service-cta-box" style="margin-top: 50px;">
-                <h3>Interested in this service?</h3>
-                <p>Get a quote or schedule a consultation today.</p>
-                <a href="contact.html" class="btn-primary">Contact Us</a>
-            </div>
-        </article>
+        <div class="service-features-wrapper" style="margin-top: 40px;">
+          <h3 id="service-features-title"
+            style="color:var(--accent-gold); margin-bottom: 20px; font-family: var(--font-heading);">What We Offer</h3>
+          <ul id="service-features" class="features-list" style="list-style: none; padding: 0;">
+            <!-- Features injected via JS -->
+          </ul>
+          <p id="service-note" style="margin-top: 25px; font-style: italic; color: var(--text-muted);"></p>
+        </div>
+
+        <div class="common-note-box"
+          style="margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--glass-border);">
+          <p id="common-note" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;"></p>
+        </div>
+
+        <div class="service-cta-box" style="margin-top: 50px;">
+          <h3>Interested in this service?</h3>
+          <p>Get a quote or schedule a consultation today.</p>
+          <a href="contact.html" class="btn-primary">Contact Us</a>
+        </div>
+      </article>
 
     </div>
   </section>
@@ -197,7 +150,9 @@
         </div>
 
         <ul class="footer-list">
-          <li><p class="footer-list-title">Quick Links</p></li>
+          <li>
+            <p class="footer-list-title">Quick Links</p>
+          </li>
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="index.html#services-slider" class="footer-link">Services</a></li>
           <li><a href="index.html#about" class="footer-link">About Us</a></li>
@@ -205,7 +160,9 @@
         </ul>
 
         <ul class="footer-list">
-          <li><p class="footer-list-title">Company</p></li>
+          <li>
+            <p class="footer-list-title">Company</p>
+          </li>
           <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
           <li><a href="terms-and-conditions.html" class="footer-link">Terms & Conditions</a></li>
           <li><a href="cookie-policy.html" class="footer-link">Cookie Policy</a></li>
@@ -213,7 +170,9 @@
         </ul>
 
         <ul class="footer-list">
-          <li><p class="footer-list-title">Contact & Hours</p></li>
+          <li>
+            <p class="footer-list-title">Contact & Hours</p>
+          </li>
           <li class="footer-item">
             <i class="fas fa-map-marker-alt"></i>
             <address>Tukai Nagar, Sinhag Rd, Pune - 411041</address>
@@ -243,4 +202,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
