@@ -282,25 +282,54 @@ if (contactForm && supabaseClient) {
     submitBtn.innerText = 'Sending...';
     submitBtn.disabled = true;
 
+    // Get values safely
+    const fullNameEl = document.getElementById('fullName');
+    const emailEl = document.getElementById('email');
+    const mobileEl = document.getElementById('mobile') || document.getElementById('phone'); // handle different IDs
+    const messageEl = document.getElementById('message');
+
+    const fullName = fullNameEl ? fullNameEl.value : '';
+    const email = emailEl ? emailEl.value : '';
+    const mobile = mobileEl ? mobileEl.value : '';
+    const message = messageEl ? messageEl.value : '';
+
     const formData = {
-      full_name: document.getElementById('fullName').value,
-      email: document.getElementById('email').value,
-      mobile: document.getElementById('mobile').value,
-      message: document.getElementById('message').value
+      full_name: fullName,
+      email: email,
+      mobile: mobile,
+      message: message
     };
 
     try {
+      // 1. Insert into Supabase (Keep existing database logic)
       const { data, error } = await supabaseClient
         .from('contacts')
         .insert([formData]);
 
       if (error) throw error;
 
-      alert('Thank you! Your message has been sent successfully.');
-      contactForm.reset();
+      // 2. Send Email via Python Backend
+      const response = await fetch('/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert('Thank you! Your message has been sent successfully.');
+        contactForm.reset();
+      } else {
+        console.error('Email Error:', result);
+        alert('Message saved to database, but failed to send email: ' + (result.message || 'Unknown error'));
+      }
+
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error sending your message. Please try again or contact us directly.');
+      console.error('Error:', error);
+      alert('There was an error processing your request. Please try again.');
     } finally {
       submitBtn.innerText = originalBtnText;
       submitBtn.disabled = false;
