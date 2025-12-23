@@ -32,29 +32,37 @@
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link-item">Home</a></li>
+        <li><a href="index.html" class="nav-link-item" data-i18n="navHome">Home</a></li>
 
         <li class="dropdown-container">
-          <a href="index.html#services-slider" class="dropdown-trigger">Services <i class="fas fa-chevron-down"
+          <a href="index.html#services-slider" class="dropdown-trigger"><span data-i18n="navServices">Services</span> <i class="fas fa-chevron-down"
               style="font-size:0.8em; margin-left:5px;"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="service-details.html?id=vastu">Vastu Consultant</a></li>
-            <li><a href="service-details.html?id=interior">Interior Designer</a></li>
-            <li><a href="service-details.html?id=printing">Design & Printing</a></li>
-            <li><a href="service-details.html?id=event">Event Management</a></li>
-            <li><a href="service-details.html?id=photography">Photography</a></li>
-            <li><a href="service-details.html?id=prewedding">Pre Wedding Shoots</a></li>
-            <li><a href="service-details.html?id=residence-painting">Residence Painting</a></li>
-            <li><a href="service-details.html?id=commercial-painting">Commercial Painting</a></li>
-            <li><a href="service-details.html?id=legal">Legal Advice</a></li>
+            <li><a href="service-details.html?id=vastu" data-i18n="vastu_title">Vastu Consultant</a></li>
+            <li><a href="service-details.html?id=interior" data-i18n="interior_title">Interior Designer</a></li>
+            <li><a href="service-details.html?id=printing" data-i18n="printing_title">Design & Printing</a></li>
+            <li><a href="service-details.html?id=event" data-i18n="event_title">Event Management</a></li>
+            <li><a href="service-details.html?id=photography" data-i18n="photography_title">Photography</a></li>
+            <li><a href="service-details.html?id=prewedding" data-i18n="prewedding_title">Pre Wedding Shoots</a></li>
+            <li><a href="service-details.html?id=residence-painting" data-i18n="residence_painting_title">Residence Painting</a></li>
+            <li><a href="service-details.html?id=commercial-painting" data-i18n="commercial_painting_title">Commercial Painting</a></li>
+            <li><a href="service-details.html?id=legal" data-i18n="legal_title">Legal Advice</a></li>
           </ul>
         </li>
 
-        <li><a href="index.html#about" class="nav-link-item">About Us</a></li>
-        <li class="mobile-only"><a href="contact.html" class="nav-link-item">Contact Us</a></li>
+        <li><a href="index.html#about" class="nav-link-item" data-i18n="navAbout">About Us</a></li>
+        <li class="mobile-only"><a href="contact.html" class="nav-link-item" data-i18n="navContact">Contact Us</a></li>
       </ul>
 
-      <a href="contact.html" class="btn-primary">Contact Us</a>
+      <div class="header-actions">
+        <a href="contact.html" class="btn-primary" data-i18n="contactUs">Contact Us</a>
+
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" data-lang="mr">मराठी</button>
+        </div>
+      </div>
 
       <div class="menu-btn" data-nav-toggler>
         <i class="fas fa-bars"></i>
@@ -65,9 +73,9 @@
   <!-- HERO -->
   <section class="subpage-hero">
     <div class="container">
-      <h1 class="hero-title">Terms & <span>Conditions</span></h1>
+      <h1 class="hero-title" data-i18n="termsTitle">Terms & <span>Conditions</span></h1>
       <div class="hero-divider"></div>
-      <p class="section-subtitle">Defining our professional commitment</p>
+      <p class="section-subtitle" data-i18n="termsSubtitle">Defining our professional commitment</p>
     </div>
   </section>
 
@@ -77,46 +85,28 @@
       <div class="policy-card">
         <div class="policy-content">
 
-          <h2>1. Service Scope</h2>
-          <p>
-            We act as a facilitator connecting clients with independent professionals. Services are assigned based on
-            availability, suitability, and project requirements.
+          <h2 data-i18n="termsSec1Title">1. Use of Services</h2>
+          <p data-i18n="termsSec1Text">
+            Our platform connects users with service professionals. By using our services, you agree to provide accurate information and engage in professional communication.
           </p>
 
-          <h2>2. No Guaranteed Availability</h2>
-          <p>
-            Submission of a service request or registration does not guarantee immediate or continuous service
-            availability.
+          <h2 data-i18n="termsSec2Title">2. Booking & Payments</h2>
+          <p data-i18n="termsSec2Text">
+            Service bookings are subject to availability. Payment terms, project scope, and timelines are finalized before the commencement of any work.
           </p>
 
-          <h2>3. Payment Terms</h2>
-          <p>
-            Payments are finalized before project initiation and are released after successful completion of the
-            assigned task, unless otherwise agreed.
+          <h2 data-i18n="termsSec3Title">3. User Conduct</h2>
+          <p data-i18n="termsSec3Text">
+            Users must not use the platform for any unlawful activities or to transmit harmful content. Respectful professional behavior is expected from both clients and providers.
           </p>
 
-          <h2>4. Professional Conduct</h2>
-          <p>
-            All professionals are expected to maintain professional behavior. Alcohol consumption, smoking, or substance
-            use during work is strictly prohibited.
+          <h2 data-i18n="termsSec4Title">4. Limitation of Liability</h2>
+          <p data-i18n="termsSec4Text">
+            We strive for excellence but are not liable for indirect damages or disputes between parties after service completion. We act as a coordination and service delivery platform.
           </p>
 
-          <h2>5. Liability Limitation</h2>
-          <p>
-            We are not responsible for delays, unavailability, or disputes arising from factors beyond our control. Any
-            agreement between client and professional is binding to the defined scope of work.
-          </p>
-
-          <h2>6. Modifications</h2>
-          <p>
-            We reserve the right to update these terms at any time without prior notice. If you have questions about
-            these terms, contact us at <a href="mailto:shrimantmultiservices79@gmail.com"
-              class="policy-accent-link">shrimantmultiservices79@gmail.com</a>.
-          </p>
-
-          <div class="policy-note-box">
-            All services and opportunities are subject to availability and project requirements. Registration does not
-            guarantee work or assignments.
+          <div class="policy-note-box" data-i18n="privacyNote">
+            All services and opportunities are subject to availability and project requirements.
           </div>
 
         </div>
@@ -136,9 +126,10 @@
               <p>Multi Facilities & Services 79</p>
             </div>
           </a>
-          <p class="footer-text">
+          <p class="footer-text" data-i18n="footerText">
             Your premium destination for Vastu, Interior Design, and Event Management.
           </p>
+          <p class="footer-catchphrase" data-i18n="footerCatchphrase" style="color:#fff; font-weight:700; margin-top:5px;">Your dream. Our expertise. Let's create excellence.</p>
           <div class="social-links-centered">
             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -149,27 +140,27 @@
 
         <ul class="footer-list">
           <li>
-            <p class="footer-list-title">Quick Links</p>
+            <p class="footer-list-title" data-i18n="quickLinks">Quick Links</p>
           </li>
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="index.html#services-slider" class="footer-link">Services</a></li>
-          <li><a href="index.html#about" class="footer-link">About Us</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="index.html" class="footer-link" data-i18n="navHome">Home</a></li>
+          <li><a href="index.html#services-slider" class="footer-link" data-i18n="navServices">Services</a></li>
+          <li><a href="index.html#about" class="footer-link" data-i18n="navAbout">About Us</a></li>
+          <li><a href="contact.html" class="footer-link" data-i18n="navContact">Contact</a></li>
         </ul>
 
         <ul class="footer-list">
           <li>
-            <p class="footer-list-title">Company</p>
+            <p class="footer-list-title" data-i18n="company">Company</p>
           </li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms-and-conditions.html" class="footer-link">Terms & Conditions</a></li>
-          <li><a href="cookie-policy.html" class="footer-link">Cookie Policy</a></li>
-          <li><a href="careers.html" class="footer-link">Careers</a></li>
+          <li><a href="privacy-policy.html" class="footer-link" data-i18n="privacyPolicy">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html" class="footer-link" data-i18n="termsConditions">Terms & Conditions</a></li>
+          <li><a href="cookie-policy.html" class="footer-link" data-i18n="cookiePolicy">Cookie Policy</a></li>
+          <li><a href="careers.html" class="footer-link" data-i18n="careers">Careers</a></li>
         </ul>
 
         <ul class="footer-list">
           <li>
-            <p class="footer-list-title">Contact & Hours</p>
+            <p class="footer-list-title" data-i18n="contactHours">Contact & Hours</p>
           </li>
           <li class="footer-item"><i class="fas fa-map-marker-alt"></i>
             <address>Tukai Nagar, Sinhag Rd, Pune - 411041</address>
@@ -178,15 +169,15 @@
               class="footer-link">shrimantmultiservices79@gmail.com</a></li>
           <li class="footer-item" style="margin-top: 20px;"><i class="fas fa-clock"></i>
             <div>
-              <p>Mon-Fri: 9AM - 7PM</p>
-              <p>Sat: 10AM - 5PM</p>
+              <p data-i18n="monFri">Mon-Fri: 9AM - 7PM</p>
+              <p data-i18n="sat">Sat: 10AM - 5PM</p>
             </div>
           </li>
         </ul>
       </div>
 
       <div class="footer-bottom">
-        <p class="copyright">&copy; 2025 Shrimant Multi Facilities. All Rights Reserved.</p>
+        <p class="copyright" data-i18n="copyright">&copy; 2025 Shrimant Multi Facilities. All Rights Reserved.</p>
       </div>
     </div>
   </footer>

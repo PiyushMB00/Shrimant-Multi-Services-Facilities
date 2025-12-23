@@ -38,29 +38,37 @@
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link-item">Home</a></li>
+        <li><a href="index.html" class="nav-link-item" data-i18n="navHome">Home</a></li>
 
         <li class="dropdown-container">
-          <a href="index.html#services-slider" class="dropdown-trigger">Services <i class="fas fa-chevron-down"
+          <a href="index.html#services-slider" class="dropdown-trigger"><span data-i18n="navServices">Services</span> <i class="fas fa-chevron-down"
               style="font-size:0.8em; margin-left:5px;"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="service-details.html?id=vastu">Vastu Consultant</a></li>
-            <li><a href="service-details.html?id=interior">Interior Designer</a></li>
-            <li><a href="service-details.html?id=printing">Design & Printing</a></li>
-            <li><a href="service-details.html?id=event">Event Management</a></li>
-            <li><a href="service-details.html?id=photography">Photography</a></li>
-            <li><a href="service-details.html?id=prewedding">Pre Wedding Shoots</a></li>
-            <li><a href="service-details.html?id=residence-painting">Residence Painting</a></li>
-            <li><a href="service-details.html?id=commercial-painting">Commercial Painting</a></li>
-            <li><a href="service-details.html?id=legal">Legal Advice</a></li>
+            <li><a href="service-details.html?id=vastu" data-i18n="vastu_title">Vastu Consultant</a></li>
+            <li><a href="service-details.html?id=interior" data-i18n="interior_title">Interior Designer</a></li>
+            <li><a href="service-details.html?id=printing" data-i18n="printing_title">Design & Printing</a></li>
+            <li><a href="service-details.html?id=event" data-i18n="event_title">Event Management</a></li>
+            <li><a href="service-details.html?id=photography" data-i18n="photography_title">Photography</a></li>
+            <li><a href="service-details.html?id=prewedding" data-i18n="prewedding_title">Pre Wedding Shoots</a></li>
+            <li><a href="service-details.html?id=residence-painting" data-i18n="residence_painting_title">Residence Painting</a></li>
+            <li><a href="service-details.html?id=commercial-painting" data-i18n="commercial_painting_title">Commercial Painting</a></li>
+            <li><a href="service-details.html?id=legal" data-i18n="legal_title">Legal Advice</a></li>
           </ul>
         </li>
 
-        <li><a href="index.html#about" class="nav-link-item">About Us</a></li>
-        <li class="mobile-only"><a href="contact.html" class="nav-link-item">Contact Us</a></li>
+        <li><a href="index.html#about" class="nav-link-item" data-i18n="navAbout">About Us</a></li>
+        <li class="mobile-only"><a href="contact.html" class="nav-link-item" data-i18n="navContact">Contact Us</a></li>
       </ul>
 
-      <a href="contact.html" class="btn-primary">Contact Us</a>
+      <div class="header-actions">
+        <a href="contact.html" class="btn-primary" data-i18n="contactUs">Contact Us</a>
+
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" data-lang="mr">मराठी</button>
+        </div>
+      </div>
 
       <div class="menu-btn" data-nav-toggler>
         <i class="fas fa-bars"></i>
@@ -71,9 +79,9 @@
   <!-- CONTACT HERO -->
   <section class="subpage-hero">
     <div class="container">
-      <h1 class="hero-title">Get in <span>Touch</span></h1>
+      <h1 class="hero-title" data-i18n="contactHeroTitle">Get in <span>Touch</span></h1>
       <div class="hero-divider"></div>
-      <p class="section-subtitle">Professional Consultation for Homes and Offices</p>
+      <p class="section-subtitle" data-i18n="contactHeroSubtitle">Professional Consultation for Homes and Offices</p>
     </div>
   </section>
 
@@ -84,8 +92,8 @@
 
         <!-- Info Content -->
         <div class="contact-info-new">
-          <h2>Let's build something <br> remarkable together.</h2>
-          <p class="sub-text">
+          <h2 data-i18n="remarkableTogether">Let's build something <br> remarkable together.</h2>
+          <p class="sub-text" data-i18n="reachOutText">
             Have a project in mind or need expert advice? Reach out to us and let's discuss how we can bring your vision
             to life with precision and excellence.
           </p>
@@ -93,7 +101,7 @@
           <div class="contact-card-new">
             <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="card-content">
-              <h3>Our Location</h3>
+              <h3 data-i18n="ourLocation">Our Location</h3>
               <p>Tukai Nagar, Sinhag Rd, Pune - 411041</p>
             </div>
           </div>
@@ -101,7 +109,7 @@
           <div class="contact-card-new">
             <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
             <div class="card-content">
-              <h3>Phone Number</h3>
+              <h3 data-i18n="phoneNumber">Phone Number</h3>
               <p><a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a></p>
             </div>
           </div>
@@ -109,7 +117,7 @@
           <div class="contact-card-new">
             <div class="card-icon"><i class="fas fa-envelope"></i></div>
             <div class="card-content">
-              <h3>Email Address</h3>
+              <h3 data-i18n="emailAddress">Email Address</h3>
               <p><a href="mailto:shrimantmultiservices79@gmail.com">shrimantmultiservices79@gmail.com</a></p>
             </div>
           </div>
@@ -117,21 +125,21 @@
 
         <!-- Glassmorphism Form -->
         <div class="contact-form-glass">
-          <h3>Send a Message</h3>
+          <h3 data-i18n="sendMessage">Send a Message</h3>
           <form id="contactForm" action="#">
             <div class="form-group-modern">
-              <input type="text" id="fullName" class="form-input-modern" placeholder="Your Full Name" required>
+              <input type="text" id="fullName" class="form-input-modern" placeholder="Your Full Name" data-i18n="fullNamePlaceholder" required>
             </div>
             <div class="form-group-modern">
-              <input type="email" id="email" class="form-input-modern" placeholder="Your Email Address" required>
+              <input type="email" id="email" class="form-input-modern" placeholder="Your Email Address" data-i18n="emailPlaceholder" required>
             </div>
             <div class="form-group-modern">
-              <input type="tel" id="mobile" class="form-input-modern" placeholder="Your Phone Number">
+              <input type="tel" id="mobile" class="form-input-modern" placeholder="Your Phone Number" data-i18n="phonePlaceholder">
             </div>
             <div class="form-group-modern">
-              <textarea id="message" class="form-input-modern" placeholder="How can we help you?"></textarea>
+              <textarea id="message" class="form-input-modern" placeholder="How can we help you?" data-i18n="helpPlaceholder"></textarea>
             </div>
-            <button type="submit" class="btn-submit-modern">Send Journey Message</button>
+            <button type="submit" class="btn-submit-modern" data-i18n="sendButton">Send Message</button>
           </form>
         </div>
       </div>
@@ -153,10 +161,10 @@
               <p>Multi Facilities & Services 79</p>
             </div>
           </a>
-          <p class="footer-text">
+          <p class="footer-text" data-i18n="footerText">
             Your premium destination for Vastu, Interior Design, and Event Management.
           </p>
-          <p class="footer-catchphrase">Your dream. Our expertise. Let's create excellence.</p>
+          <p class="footer-catchphrase" data-i18n="footerCatchphrase">Your dream. Our expertise. Let's create excellence.</p>
           <div class="social-links-centered">
             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -167,27 +175,27 @@
 
         <ul class="footer-list">
           <li>
-            <p class="footer-list-title">Quick Links</p>
+            <p class="footer-list-title" data-i18n="quickLinks">Quick Links</p>
           </li>
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="index.html#services-slider" class="footer-link">Services</a></li>
-          <li><a href="index.html#about" class="footer-link">About Us</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="index.html" class="footer-link" data-i18n="navHome">Home</a></li>
+          <li><a href="index.html#services-slider" class="footer-link" data-i18n="navServices">Services</a></li>
+          <li><a href="index.html#about" class="footer-link" data-i18n="navAbout">About Us</a></li>
+          <li><a href="contact.html" class="footer-link" data-i18n="navContact">Contact</a></li>
         </ul>
 
         <ul class="footer-list">
           <li>
-            <p class="footer-list-title">Company</p>
+            <p class="footer-list-title" data-i18n="company">Company</p>
           </li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms-and-conditions.html" class="footer-link">Terms & Conditions</a></li>
-          <li><a href="cookie-policy.html" class="footer-link">Cookie Policy</a></li>
-          <li><a href="careers.html" class="footer-link">Careers</a></li>
+          <li><a href="privacy-policy.html" class="footer-link" data-i18n="privacyPolicy">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html" class="footer-link" data-i18n="termsConditions">Terms & Conditions</a></li>
+          <li><a href="cookie-policy.html" class="footer-link" data-i18n="cookiePolicy">Cookie Policy</a></li>
+          <li><a href="careers.html" class="footer-link" data-i18n="careers">Careers</a></li>
         </ul>
 
         <ul class="footer-list">
           <li>
-            <p class="footer-list-title">Contact & Hours</p>
+            <p class="footer-list-title" data-i18n="contactHours">Contact & Hours</p>
           </li>
           <li class="footer-item">
             <i class="fas fa-map-marker-alt"></i>
@@ -200,8 +208,8 @@
           <li class="footer-item" style="margin-top: 20px;">
             <i class="fas fa-clock"></i>
             <div>
-              <p>Mon-Fri: 9AM - 7PM</p>
-              <p>Sat: 10AM - 5PM</p>
+              <p data-i18n="monFri">Mon-Fri: 9AM - 7PM</p>
+              <p data-i18n="sat">Sat: 10AM - 5PM</p>
             </div>
           </li>
         </ul>
@@ -209,7 +217,7 @@
 
       <div class="footer-bottom">
         <p class="footer-accreditation">MSME Registered (Udyam) | Shop Act Certified Business</p>
-        <p class="copyright">
+        <p class="copyright" data-i18n="copyright">
           &copy; 2025 Shrimant Multi Facilities. All Rights Reserved.
         </p>
       </div>
