@@ -216,6 +216,26 @@ button {
   box-shadow: 0 12px 30px rgba(186, 155, 77, 0.6);
 }
 
+.btn-secondary {
+  display: inline-block;
+  padding: 14px 30px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid var(--accent-gold);
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-gold);
+  color: var(--primary-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(186, 155, 77, 0.3);
+}
+
 /* HERO SLIDER (Grilli Style) */
 .hero {
   position: relative;
@@ -566,8 +586,8 @@ button {
 
 .footer-top {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* Enforced 4 Columns */
+  grid-template-columns: repeat(5, 1fr);
+  /* Adjusted to 5 columns for single row layout */
   gap: 30px;
   margin-bottom: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -650,18 +670,45 @@ button {
   width: 40px;
   height: 40px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
   border-radius: 50%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: 0.3s;
+  font-size: 1.2rem; /* Slightly larger */
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+}
+
+.social-link i {
+  color: inherit;
+  font-family: "Font Awesome 6 Brands", "FontAwesome" !important;
+  font-weight: 400 !important; /* Brands are 400 weight */
+  font-style: normal;
+  display: inline-block;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .social-link:hover {
   background: var(--accent-gold);
   border-color: var(--accent-gold);
+  color: var(--primary-bg);
   transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(186, 155, 77, 0.3);
+}
+
+.footer-connect-text {
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Mobile Nav Styles */
@@ -1397,8 +1444,8 @@ html:lang(mr) .title-part-2 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 80px;
-  /* Header Height */
+  padding-top: 80px; /* Use padding instead of margin to include background */
+  margin-top: 0;
 }
 
 .service-hero .overlay {
@@ -1774,5 +1821,143 @@ html:lang(mr) .title-part-2 {
     font-size: 1rem;
     padding: 8px;
     opacity: 0.8;
+  }
+}
+
+/* WORKER REGISTRATION FORM */
+.worker-form-section {
+  padding: 60px 0; /* Reduced from 120px */
+  background: var(--primary-bg);
+}
+
+.worker-form-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-step {
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.step-header {
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+
+.step-header h3 {
+  color: var(--accent-gold);
+  font-size: 1.4rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: #fff;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-group select option {
+  background-color: #050618;
+  color: #fff;
+}
+
+.availability-options {
+  display: flex !important;
+  gap: 30px !important;
+  flex-wrap: nowrap !important;
+  align-items: center;
+}
+
+.doc-note {
+  background: rgba(186, 155, 77, 0.1);
+  border-left: 4px solid var(--accent-gold);
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+.doc-note p {
+  font-size: 0.9rem;
+  color: #dcdcdc;
+  line-height: 1.5;
+}
+
+.checkbox-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: var(--accent-gold);
+}
+
+.checkbox-group label {
+  font-size: 0.9rem;
+  color: #dcdcdc;
+  cursor: pointer;
+}
+
+.submit-notice {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.submit-notice p {
+  font-size: 0.95rem;
+  color: var(--accent-gold);
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .worker-form-card {
+    padding: 25px 20px;
   }
 }
