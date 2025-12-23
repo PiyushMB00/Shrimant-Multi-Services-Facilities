@@ -1100,12 +1100,6 @@ textarea.form-input-modern {
   padding-top: 30px;
 }
 
-.footer-accreditation {
-  color: var(--text-muted);
-  margin-bottom: 15px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
 
 .copyright {
   color: rgba(255, 255, 255, 0.4);
