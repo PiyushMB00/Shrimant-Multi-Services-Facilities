@@ -878,13 +878,12 @@ const updateDynamicContent = (lang) => {
     });
   }
 
-  // 2. Update Service Details Page Content
   const serviceTitleEl = document.getElementById("service-title");
   if (serviceTitleEl) {
     const params = new URLSearchParams(window.location.search);
     const serviceId = params.get("id");
     if (serviceId) {
-      const serviceKeyPrefix = serviceId.replace(/-/g, "_"); // e.g., "vastu", "residence_painting"
+      const serviceKeyPrefix = serviceId.replace(/-/g, "_");
 
       const titleKey = `${serviceKeyPrefix}_title`;
       const introKey = `${serviceKeyPrefix}_intro`;
@@ -983,10 +982,6 @@ if (heroSliderItems.length > 0) {
 // SUPABASE INTEGRATION
 // ---------------------------------------------------------
 
-// SUPABASE INTEGRATION
-// Note: We are now using the Python backend to handle Supabase interactions to keep keys secure.
-// The frontend just submits the form to the backend API.
-
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
@@ -998,7 +993,6 @@ if (contactForm) {
     submitBtn.innerText = "Sending...";
     submitBtn.disabled = true;
 
-    // Get values safely
     const fullNameEl = document.getElementById("fullName");
     const emailEl = document.getElementById("email");
     const mobileEl =
@@ -1018,7 +1012,6 @@ if (contactForm) {
     };
 
     try {
-      // Send Email via Python Backend (which can also save to DB if configured)
       const response = await fetch("/send-email", {
         method: "POST",
         headers: {
@@ -1055,14 +1048,12 @@ if (contactForm) {
 document.addEventListener("DOMContentLoaded", function () {
   const navToggler = document.querySelector("[data-nav-toggler]");
   const navLinks = document.querySelector(".nav-links");
-  // Ensure we get the icon, handling potential different structures
   const menuIcon = navToggler ? navToggler.querySelector("i") : null;
 
   if (navToggler && navLinks && menuIcon) {
     navToggler.addEventListener("click", function () {
       navLinks.classList.toggle("active");
 
-      // Toggle icon between bars and times (X)
       if (navLinks.classList.contains("active")) {
         menuIcon.classList.remove("fa-bars");
         menuIcon.classList.add("fa-times");
@@ -1072,7 +1063,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Close menu when a link is clicked
     const navItems = document.querySelectorAll(".nav-link-item");
     navItems.forEach((item) => {
       item.addEventListener("click", () => {
@@ -1083,7 +1073,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Worker Registration Form Handler
   const workerForm = document.getElementById("workerRegisterForm");
   if (workerForm) {
     workerForm.addEventListener("submit", async function (e) {
@@ -1097,12 +1086,9 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         const formData = new FormData(workerForm);
 
-        // Handle checkboxes explicitly if needed, but FormData handles named inputs well.
-        // Specifically for "travel", if it's not checked it won't be in formData, which is fine.
-
         const response = await fetch("/api/submit-worker-registration", {
           method: "POST",
-          body: formData // No Content-Type header needed for FormData, browser sets multipart boundary
+          body: formData
         });
 
         const result = await response.json();

@@ -6,8 +6,9 @@ import os
 from dotenv import load_dotenv
 from supabase import create_client, Client
 import datetime
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 
-# Load environment variables
 load_dotenv()
 
 app = Flask(__name__, static_url_path='', static_folder='.', template_folder='.')
@@ -110,6 +111,29 @@ Shrimant Multi Services
     else:
         return jsonify({"status": "error", "message": "Failed to send email"}), 500
 
+def upload_file_to_storage(file, key, form_data):
+    """Upload a single file to Supabase storage"""
+    try:
+        import werkzeug
+        safe_filename = werkzeug.utils.secure_filename(file.filename)
+        
+        timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        mobile = form_data.get('mobile', 'unknown')
+        storage_path = f"{mobile}/{timestamp}_{key}_{safe_filename}"
+        file_content = file.read()
+        
+        res = supabase.storage.from_("worker-documents").upload(
+            path=storage_path,
+            file=file_content,
+            file_options={"content-type": file.content_type}
+        )
+        
+        public_url = supabase.storage.from_("worker-documents").get_public_url(storage_path)
+        return {key: public_url}
+    except Exception as upload_error:
+        print(f"File upload error for {key}: {upload_error}")
+        return {key: None}
+
 @app.route('/api/submit-worker-registration', methods=['POST'])
 def handle_worker_registration():
     if not supabase:
@@ -117,44 +141,22 @@ def handle_worker_registration():
         return jsonify({"status": "error", "message": "Backend database not configured"}), 500
 
     try:
-        # Extract form data
         form_data = request.form.to_dict()
-        
         files = request.files
         file_urls = {}
 
-        # Upload files to Supabase Storage
-        for key in request.files:
-            file = files.get(key)
-            if file and file.filename != '':
-                # Clean filename
-                import werkzeug
-                safe_filename = werkzeug.utils.secure_filename(file.filename)
-                
-                timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-                # Structure: {mobile}/{timestamp}_{type}_{filename}
-                mobile = form_data.get('mobile', 'unknown')
-                storage_path = f"{mobile}/{timestamp}_{key}_{safe_filename}"
-                file_content = file.read()
-                
-                # Upload to 'worker-documents' bucket
-                try:
-                    res = supabase.storage.from_("worker-documents").upload(
-                        path=storage_path,
-                        file=file_content,
-                        file_options={"content-type": file.content_type}
-                    )
-                    
-                    # Get public URL
-                    public_url = supabase.storage.from_("worker-documents").get_public_url(storage_path)
-                    file_urls[key] = public_url
-                except Exception as upload_error:
-                    print(f"File upload error for {key}: {upload_error}")
-                    # Continue even if upload fails? No, probably better to fail.
-                    # But for now let's log and continue to save at least partial data
-                    # return jsonify({"status": "error", "message": f"Failed to upload {key}"}), 500
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            futures = {}
+            
+            for key in request.files:
+                file = files.get(key)
+                if file and file.filename != '':
+                    futures[executor.submit(upload_file_to_storage, file, key, form_data)] = key
+            
+            for future in as_completed(futures):
+                result = future.result()
+                file_urls.update(result)
 
-        # Construct database record
         db_record = {
             "full_name": form_data.get('fullName'),
             "mobile": form_data.get('mobile'),
@@ -169,14 +171,12 @@ def handle_worker_registration():
             "availability": form_data.get('availability'),
             "willing_to_travel": form_data.get('travel') == 'on',  
             "bank_details": form_data.get('bankDetails'),
-            # Map file URLs - ensure keys match frontend input names
             "aadhar_url": file_urls.get('aadharFile'),
             "photo_url": file_urls.get('photoFile'),
             "address_proof_url": file_urls.get('addressProofFile'),
             "created_at": datetime.datetime.now().isoformat()
         }
 
-        # Insert into Supabase
         data = supabase.table("worker_registrations").insert(db_record).execute()
         
         return jsonify({"status": "success", "message": "Registration submitted successfully"}), 200
