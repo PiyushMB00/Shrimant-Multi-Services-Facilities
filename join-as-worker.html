@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +32,8 @@
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link-item" data-i18n="navHome">Home</a></li>
         <li class="dropdown-container">
-          <a href="index.html#services-slider" class="dropdown-trigger"><span data-i18n="navServices">Services</span> <i class="fas fa-chevron-down" style="font-size:0.8em; margin-left:5px;"></i></a>
+          <a href="index.html#services-slider" class="dropdown-trigger"><span data-i18n="navServices">Services</span> <i
+              class="fas fa-chevron-down" style="font-size:0.8em; margin-left:5px;"></i></a>
           <ul class="dropdown-menu">
             <li><a href="service-details.html?id=vastu" data-i18n="vastu_title">Vastu Consultant</a></li>
             <li><a href="service-details.html?id=interior" data-i18n="interior_title">Interior Designer</a></li>
@@ -38,8 +41,10 @@
             <li><a href="service-details.html?id=event" data-i18n="event_title">Event Management</a></li>
             <li><a href="service-details.html?id=photography" data-i18n="photography_title">Photography</a></li>
             <li><a href="service-details.html?id=prewedding" data-i18n="prewedding_title">Pre Wedding Shoots</a></li>
-            <li><a href="service-details.html?id=residence-painting" data-i18n="residence_painting_title">Residence Painting</a></li>
-            <li><a href="service-details.html?id=commercial-painting" data-i18n="commercial_painting_title">Commercial Painting</a></li>
+            <li><a href="service-details.html?id=residence-painting" data-i18n="residence_painting_title">Residence
+                Painting</a></li>
+            <li><a href="service-details.html?id=commercial-painting" data-i18n="commercial_painting_title">Commercial
+                Painting</a></li>
             <li><a href="service-details.html?id=legal" data-i18n="legal_title">Legal Advice</a></li>
           </ul>
         </li>
@@ -58,11 +63,14 @@
   </header>
 
   <!-- WORKER HERO -->
-  <section class="service-hero" style="background-image: linear-gradient(rgba(15, 17, 74, 0.8), rgba(15, 17, 74, 0.8)), url('images/hero-bg.jpg');">
+  <section class="service-hero"
+    style="background-image: linear-gradient(rgba(15, 17, 74, 0.8), rgba(15, 17, 74, 0.8)), url('images/hero-bg.jpg');">
     <div class="container">
       <h1 data-i18n="workerRegTitle">Worker Registration</h1>
       <p data-i18n="workerRegSubtitle">Join our network of skilled professionals</p>
-      <p class="hero-text-small" style="margin-top: 15px; color: var(--accent-gold); font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;" data-i18n="workerHeroBenefits">
+      <p class="hero-text-small"
+        style="margin-top: 15px; color: var(--accent-gold); font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;"
+        data-i18n="workerHeroBenefits">
         FLEXIBLE WORK &nbsp;&bull;&nbsp; INSTANT PAYMENTS &nbsp;&bull;&nbsp; HIGH EARNINGS
       </p>
     </div>
@@ -73,7 +81,7 @@
     <div class="container">
       <div class="worker-form-card">
         <form id="workerRegisterForm">
-          
+
           <!-- Step 1: Personal & Work details -->
           <div class="form-step">
             <div class="step-header">
@@ -133,7 +141,7 @@
                 <input type="text" name="tools" placeholder="Details (Yes/No)">
               </div>
             </div>
-            
+
             <div class="form-group">
               <label data-i18n="availTitle">Availability</label>
               <div class="availability-options" style="white-space: nowrap;">
@@ -164,20 +172,21 @@
               <h3 data-i18n="step2Title">Step 2: Document Collection</h3>
             </div>
             <div class="doc-note">
-              <p data-i18n="docInfo">Documents are collected only for verification and payment purposes. Shrimant Multi Facilities & Services 79 does not guarantee permanent employment.</p>
+              <p data-i18n="docInfo">Documents are collected only for verification and payment purposes. Shrimant Multi
+                Facilities & Services 79 does not guarantee permanent employment.</p>
             </div>
             <div class="grid-2">
               <div class="form-group">
                 <label data-i18n="uploadAadhar">Aadhaar Card (Mandatory)</label>
-                <input type="file" required>
+                <input type="file" name="aadharFile" required>
               </div>
               <div class="form-group">
                 <label data-i18n="uploadPhoto">Passport Size Photo</label>
-                <input type="file" required>
+                <input type="file" name="photoFile" required>
               </div>
               <div class="form-group">
                 <label data-i18n="uploadAddress">Address Proof</label>
-                <input type="file" required>
+                <input type="file" name="addressProofFile" required>
               </div>
               <div class="form-group">
                 <label data-i18n="uploadBank">Bank Details (for payment)</label>
@@ -191,7 +200,7 @@
             <div class="step-header">
               <h3 data-i18n="step3Title">Step 3: Terms Acceptance</h3>
             </div>
-            
+
             <div class="checkbox-group">
               <input type="checkbox" required>
               <label data-i18n="term1">I understand that work assigned is purely contract-based</label>
@@ -202,7 +211,8 @@
             </div>
             <div class="checkbox-group">
               <input type="checkbox" required>
-              <label data-i18n="term3">I agree that payment will be released only after work completion and client confirmation</label>
+              <label data-i18n="term3">I agree that payment will be released only after work completion and client
+                confirmation</label>
             </div>
             <div class="checkbox-group">
               <input type="checkbox" required>
@@ -210,7 +220,8 @@
             </div>
             <div class="checkbox-group">
               <input type="checkbox" required>
-              <label data-i18n="term5">I understand that misconduct may result in removal from future assignments</label>
+              <label data-i18n="term5">I understand that misconduct may result in removal from future
+                assignments</label>
             </div>
 
             <div class="step-header" style="margin-top: 30px;">
@@ -218,21 +229,26 @@
             </div>
             <div class="checkbox-group">
               <input type="checkbox" required>
-              <label data-i18n="conductRespect">I agree to follow professional behavior at all times and treat everyone with respect.</label>
+              <label data-i18n="conductRespect">I agree to follow professional behavior at all times and treat everyone
+                with respect.</label>
             </div>
             <div class="checkbox-group">
               <input type="checkbox" required>
-              <label data-i18n="conductSubstance">I confirm that I will not consume alcohol, tobacco, drugs, or any intoxicating substances during work.</label>
+              <label data-i18n="conductSubstance">I confirm that I will not consume alcohol, tobacco, drugs, or any
+                intoxicating substances during work.</label>
             </div>
             <div class="checkbox-group">
               <input type="checkbox" required>
-              <label data-i18n="conductAction">I understand that violation of rules can lead to immediate removal and strict action.</label>
+              <label data-i18n="conductAction">I understand that violation of rules can lead to immediate removal and
+                strict action.</label>
             </div>
           </div>
 
           <div class="submit-notice">
-            <p data-i18n="workerSubmitNotice">This is a contract-based work platform. Professional behavior and strict no-substance policy are mandatory. Payment is released after completion.</p>
-            <button type="submit" class="btn-primary" style="width: 100%;" data-i18n="submitApplication">Submit Application</button>
+            <p data-i18n="workerSubmitNotice">This is a contract-based work platform. Professional behavior and strict
+              no-substance policy are mandatory. Payment is released after completion.</p>
+            <button type="submit" class="btn-primary" style="width: 100%;" data-i18n="submitApplication">Submit
+              Application</button>
           </div>
 
         </form>
@@ -255,7 +271,8 @@
           <p class="footer-text" data-i18n="footerText">
             Your premium destination for Vastu, Interior Design, and Event Management.
           </p>
-          <p class="footer-catchphrase" data-i18n="footerCatchphrase">Your dream. Our expertise. Let's create excellence.</p>
+          <p class="footer-catchphrase" data-i18n="footerCatchphrase">Your dream. Our expertise. Let's create
+            excellence.</p>
           <p class="footer-connect-text" data-i18n="connectWithUs">Connect with us</p>
           <div class="social-links-centered">
             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -280,7 +297,8 @@
             <p class="footer-list-title" data-i18n="company">Company</p>
           </li>
           <li><a href="privacy-policy.html" class="footer-link" data-i18n="privacyPolicy">Privacy Policy</a></li>
-          <li><a href="terms-and-conditions.html" class="footer-link" data-i18n="termsConditions">Terms & Conditions</a></li>
+          <li><a href="terms-and-conditions.html" class="footer-link" data-i18n="termsConditions">Terms & Conditions</a>
+          </li>
           <li><a href="cookie-policy.html" class="footer-link" data-i18n="cookiePolicy">Cookie Policy</a></li>
           <li><a href="careers.html" class="footer-link" data-i18n="careers">Careers</a></li>
         </ul>
@@ -317,8 +335,11 @@
       </div>
 
       <div class="footer-bottom" style="flex-direction: column; gap: 10px;">
-        <p class="footer-text" style="font-size: 0.8rem; color: #b0b0b0; text-align: center; max-width: 800px; margin: 0 auto;" data-i18n="footerLegalDisclaimer">
-          Shrimant Multi Facilities & Services 79 acts only as a service facilitator. All workers are engaged on a contractual, task-based basis.
+        <p class="footer-text"
+          style="font-size: 0.8rem; color: #b0b0b0; text-align: center; max-width: 800px; margin: 0 auto;"
+          data-i18n="footerLegalDisclaimer">
+          Shrimant Multi Facilities & Services 79 acts only as a service facilitator. All workers are engaged on a
+          contractual, task-based basis.
         </p>
         <p class="copyright" data-i18n="copyright">
           &copy; 2025 Shrimant Multi Facilities. All Rights Reserved.
@@ -329,4 +350,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

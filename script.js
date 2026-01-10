@@ -852,67 +852,67 @@ const setLanguage = (lang) => {
 };
 
 const updateDynamicContent = (lang) => {
-    // 1. Update Home Page Slider Titles/Text
-    const sliderItems = document.querySelectorAll('[data-hero-slider-item]');
-    if (sliderItems.length > 0) {
-        // Map service IDs to titles/texts in translations
-        const sliderMap = [
-            { id: "vastu", title: "vastu_title", text: "vastu_text" },
-            { id: "interior", title: "interior_title", text: "interior_text" },
-            { id: "event", title: "event_title", text: "event_text" },
-            { id: "photography", title: "photography_title", text: "photography_text" },
-            { id: "legal", title: "legal_title", text: "legal_text" },
-            { id: "printing", title: "printing_title", text: "printing_text" },
-            { id: "prewedding", title: "prewedding_title", text: "prewedding_text" },
-            { id: "residence-painting", title: "residence_painting_title", text: "residence_painting_text" },
-            { id: "commercial-painting", title: "commercial_painting_title", text: "commercial_painting_text" }
-        ];
+  // 1. Update Home Page Slider Titles/Text
+  const sliderItems = document.querySelectorAll('[data-hero-slider-item]');
+  if (sliderItems.length > 0) {
+    // Map service IDs to titles/texts in translations
+    const sliderMap = [
+      { id: "vastu", title: "vastu_title", text: "vastu_text" },
+      { id: "interior", title: "interior_title", text: "interior_text" },
+      { id: "event", title: "event_title", text: "event_text" },
+      { id: "photography", title: "photography_title", text: "photography_text" },
+      { id: "legal", title: "legal_title", text: "legal_text" },
+      { id: "printing", title: "printing_title", text: "printing_text" },
+      { id: "prewedding", title: "prewedding_title", text: "prewedding_text" },
+      { id: "residence-painting", title: "residence_painting_title", text: "residence_painting_text" },
+      { id: "commercial-painting", title: "commercial_painting_title", text: "commercial_painting_text" }
+    ];
 
-        sliderItems.forEach((item, index) => {
-            const titleEl = item.querySelector('.hero-title');
-            const textEl = item.querySelector('.hero-text');
-            if (sliderMap[index]) {
-                if (titleEl && translations[lang][sliderMap[index].title]) titleEl.innerText = translations[lang][sliderMap[index].title];
-                if (textEl && translations[lang][sliderMap[index].text]) textEl.innerText = translations[lang][sliderMap[index].text];
-            }
-        });
-    }
-
-    // 2. Update Service Details Page Content
-    const serviceTitleEl = document.getElementById("service-title");
-    if (serviceTitleEl) {
-      const params = new URLSearchParams(window.location.search);
-      const serviceId = params.get("id");
-      if (serviceId) {
-        const serviceKeyPrefix = serviceId.replace(/-/g, "_"); // e.g., "vastu", "residence_painting"
-
-        const titleKey = `${serviceKeyPrefix}_title`;
-        const introKey = `${serviceKeyPrefix}_intro`;
-        const descKey = `${serviceKeyPrefix}_desc`;
-        const featuresTitleKey = `${serviceKeyPrefix}_features_title`;
-        const featuresKey = `${serviceKeyPrefix}_features`;
-        const noteKey = `${serviceKeyPrefix}_note`;
-
-        if (translations[lang][titleKey]) document.getElementById("service-title").innerText = translations[lang][titleKey];
-        if (translations[lang][introKey]) document.getElementById("service-intro").innerText = translations[lang][introKey];
-        if (translations[lang][descKey]) document.getElementById("service-desc").innerHTML = translations[lang][descKey];
-
-        const featuresTitleEl = document.getElementById("service-features-title");
-        const featuresListEl = document.getElementById("service-features");
-        if (featuresTitleEl && translations[lang][featuresTitleKey]) featuresTitleEl.innerText = translations[lang][featuresTitleKey];
-        if (featuresListEl && translations[lang][featuresKey]) {
-          featuresListEl.innerHTML = translations[lang][featuresKey]
-            .map(f => `<li><i class="fas fa-check-circle" style="color:var(--accent-gold); margin-right:10px;"></i> ${f}</li>`)
-            .join("");
-        }
-
-        const serviceNoteEl = document.getElementById("service-note");
-        if (serviceNoteEl && translations[lang][noteKey]) serviceNoteEl.innerText = translations[lang][noteKey];
-
-        const commonNoteEl = document.getElementById("common-note");
-        if (commonNoteEl && translations[lang].commonNote) commonNoteEl.innerText = translations[lang].commonNote;
+    sliderItems.forEach((item, index) => {
+      const titleEl = item.querySelector('.hero-title');
+      const textEl = item.querySelector('.hero-text');
+      if (sliderMap[index]) {
+        if (titleEl && translations[lang][sliderMap[index].title]) titleEl.innerText = translations[lang][sliderMap[index].title];
+        if (textEl && translations[lang][sliderMap[index].text]) textEl.innerText = translations[lang][sliderMap[index].text];
       }
+    });
+  }
+
+  // 2. Update Service Details Page Content
+  const serviceTitleEl = document.getElementById("service-title");
+  if (serviceTitleEl) {
+    const params = new URLSearchParams(window.location.search);
+    const serviceId = params.get("id");
+    if (serviceId) {
+      const serviceKeyPrefix = serviceId.replace(/-/g, "_"); // e.g., "vastu", "residence_painting"
+
+      const titleKey = `${serviceKeyPrefix}_title`;
+      const introKey = `${serviceKeyPrefix}_intro`;
+      const descKey = `${serviceKeyPrefix}_desc`;
+      const featuresTitleKey = `${serviceKeyPrefix}_features_title`;
+      const featuresKey = `${serviceKeyPrefix}_features`;
+      const noteKey = `${serviceKeyPrefix}_note`;
+
+      if (translations[lang][titleKey]) document.getElementById("service-title").innerText = translations[lang][titleKey];
+      if (translations[lang][introKey]) document.getElementById("service-intro").innerText = translations[lang][introKey];
+      if (translations[lang][descKey]) document.getElementById("service-desc").innerHTML = translations[lang][descKey];
+
+      const featuresTitleEl = document.getElementById("service-features-title");
+      const featuresListEl = document.getElementById("service-features");
+      if (featuresTitleEl && translations[lang][featuresTitleKey]) featuresTitleEl.innerText = translations[lang][featuresTitleKey];
+      if (featuresListEl && translations[lang][featuresKey]) {
+        featuresListEl.innerHTML = translations[lang][featuresKey]
+          .map(f => `<li><i class="fas fa-check-circle" style="color:var(--accent-gold); margin-right:10px;"></i> ${f}</li>`)
+          .join("");
+      }
+
+      const serviceNoteEl = document.getElementById("service-note");
+      if (serviceNoteEl && translations[lang][noteKey]) serviceNoteEl.innerText = translations[lang][noteKey];
+
+      const commonNoteEl = document.getElementById("common-note");
+      if (commonNoteEl && translations[lang].commonNote) commonNoteEl.innerText = translations[lang].commonNote;
     }
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -983,24 +983,13 @@ if (heroSliderItems.length > 0) {
 // SUPABASE INTEGRATION
 // ---------------------------------------------------------
 
-const SUPABASE_URL = "https://nkeqstwyvsccdevfvqhv.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_1mONS9gU1kWLdVZEJ08Ruw_0Mpq89MT";
-
-// Initialize Supabase only if the library is loaded
-// Initialize Supabase
-let supabaseClient;
-if (typeof createClient !== "undefined") {
-  supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-} else if (window.supabase) {
-  supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-  );
-}
+// SUPABASE INTEGRATION
+// Note: We are now using the Python backend to handle Supabase interactions to keep keys secure.
+// The frontend just submits the form to the backend API.
 
 const contactForm = document.getElementById("contactForm");
 
-if (contactForm && supabaseClient) {
+if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -1013,7 +1002,7 @@ if (contactForm && supabaseClient) {
     const fullNameEl = document.getElementById("fullName");
     const emailEl = document.getElementById("email");
     const mobileEl =
-      document.getElementById("mobile") || document.getElementById("phone"); // handle different IDs
+      document.getElementById("mobile") || document.getElementById("phone");
     const messageEl = document.getElementById("message");
 
     const fullName = fullNameEl ? fullNameEl.value : "";
@@ -1029,14 +1018,7 @@ if (contactForm && supabaseClient) {
     };
 
     try {
-      // 1. Insert into Supabase (Keep existing database logic)
-      const { data, error } = await supabaseClient
-        .from("contacts")
-        .insert([formData]);
-
-      if (error) throw error;
-
-      // 2. Send Email via Python Backend
+      // Send Email via Python Backend (which can also save to DB if configured)
       const response = await fetch("/send-email", {
         method: "POST",
         headers: {
@@ -1053,8 +1035,7 @@ if (contactForm && supabaseClient) {
       } else {
         console.error("Email Error:", result);
         alert(
-          "Message saved to database, but failed to send email: " +
-            (result.message || "Unknown error")
+          "Failed to send email: " + (result.message || "Unknown error")
         );
       }
     } catch (error) {
@@ -1066,6 +1047,7 @@ if (contactForm && supabaseClient) {
     }
   });
 }
+
 
 /* =========================================
    MOBILE NAVIGATION TOGGLE
@@ -1104,11 +1086,41 @@ document.addEventListener("DOMContentLoaded", function () {
   // Worker Registration Form Handler
   const workerForm = document.getElementById("workerRegisterForm");
   if (workerForm) {
-    workerForm.addEventListener("submit", function (e) {
+    workerForm.addEventListener("submit", async function (e) {
       e.preventDefault();
-      // Basic validation check for required checkboxes (browser does this but we can add more logic here)
-      alert("Application submitted successfully! Our team will review your documents and contact you soon.");
-      this.reset();
+
+      const submitBtn = workerForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerText;
+      submitBtn.innerText = "Applying...";
+      submitBtn.disabled = true;
+
+      try {
+        const formData = new FormData(workerForm);
+
+        // Handle checkboxes explicitly if needed, but FormData handles named inputs well.
+        // Specifically for "travel", if it's not checked it won't be in formData, which is fine.
+
+        const response = await fetch("/api/submit-worker-registration", {
+          method: "POST",
+          body: formData // No Content-Type header needed for FormData, browser sets multipart boundary
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert("Application submitted successfully! Our team will review your documents and contact you soon.");
+          workerForm.reset();
+        } else {
+          console.error("Submission Error:", result);
+          alert("Submission failed: " + (result.message || "Unknown error"));
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An unexpected error occurred. Please try again.");
+      } finally {
+        submitBtn.innerText = originalBtnText;
+        submitBtn.disabled = false;
+      }
     });
   }
 });
