@@ -106,6 +106,21 @@ Shrimant Multi Services
     """
         user_sent = send_email(email, user_subject, user_body)
 
+    # Save to Supabase database
+    if supabase:
+        try:
+            db_record = {
+                "full_name": full_name,
+                "email": email,
+                "mobile": phone,
+                "message": message,
+                "created_at": datetime.datetime.now().isoformat()
+            }
+            supabase.table("contact_submissions").insert(db_record).execute()
+            print("Contact submission saved to database successfully")
+        except Exception as db_err:
+            print(f"Failed to save contact to database: {db_err}")
+
     if admin_sent:
         return jsonify({"status": "success", "message": "Email sent successfully"}), 200
     else:
@@ -174,11 +189,39 @@ def handle_worker_registration():
             "aadhar_url": file_urls.get('aadharFile'),
             "photo_url": file_urls.get('photoFile'),
             "address_proof_url": file_urls.get('addressProofFile'),
+            "terms_accepted": True,
             "created_at": datetime.datetime.now().isoformat()
         }
 
         data = supabase.table("worker_registrations").insert(db_record).execute()
         
+        # Send Email Notification to Admin
+        admin_subject = f"New Worker Registration: {db_record['full_name']} ({db_record['work_type']})"
+        admin_body = f"""
+New Worker Registration Submission:
+-----------------------------------
+Name: {db_record['full_name']}
+Mobile: {db_record['mobile']}
+Alternate Mobile: {db_record['alt_mobile'] or 'N/A'}
+City: {db_record['city']}
+Area: {db_record['area']}
+Date of Birth: {db_record['date_of_birth']}
+Work Type: {db_record['work_type']}
+Skill Level: {db_record['skill_level']}
+Experience: {db_record['years_experience']} years
+Tools Owned: {db_record['tools'] or 'N/A'}
+Availability: {db_record['availability']}
+Willing to Travel: {'Yes' if db_record['willing_to_travel'] else 'No'}
+Bank Details: {db_record['bank_details'] or 'N/A'}
+
+Uploaded Documents:
+- Aadhaar: {db_record['aadhar_url'] or 'Not provided'}
+- Photo: {db_record['photo_url'] or 'Not provided'}
+- Address Proof: {db_record['address_proof_url'] or 'Not provided'}
+-----------------------------------
+"""
+        send_email(RECEIVER_EMAIL, admin_subject, admin_body)
+
         return jsonify({"status": "success", "message": "Registration submitted successfully"}), 200
 
     except Exception as e:
