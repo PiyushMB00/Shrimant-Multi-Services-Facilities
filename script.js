@@ -274,7 +274,7 @@ const translations = {
     paymentSec6List1: "Payment disputes must be reported within a reasonable time.",
     paymentSec6List2: "The company’s decision after review will be final.",
     sat: "Sat: 10AM - 5PM",
-    copyright: "© 2025 Shrimant Multi Facilities. All Rights Reserved.",
+    copyright: "© 2026 Shrimant Multi Facilities. All Rights Reserved.",
     allServices: "All Services",
     interestedService: "Interested in this service?",
     getQuote: "Get a quote or schedule a consultation today.",
@@ -973,7 +973,7 @@ const autoSlide = function () {
 };
 
 if (heroSliderItems.length > 0) {
-  window.addEventListener("load", autoSlide);
+  window.addEventListener("load", autoSlide);7
 }
 
 
