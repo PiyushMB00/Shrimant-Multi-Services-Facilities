@@ -7,7 +7,7 @@
   <title>Worker Terms & Conditions | Shrimant Multi Facilities</title>
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 
@@ -21,8 +21,8 @@
   <header class="header" data-header>
     <div class="container nav">
       <div class="brand">
-        <a href="index.html" style="display:flex; align-items:center; gap:15px; color:inherit; text-decoration:none;">
-          <img src="images/logo.jpg" alt="Shrimant Logo" onerror="this.style.display='none'" />
+        <a href="/" style="display:flex; align-items:center; gap:15px; color:inherit; text-decoration:none;">
+          <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Shrimant Logo" onerror="this.style.display='none'" />
           <div class="brand-text">
             <h1>Shrimant</h1>
             <span>Multi Facilities & Services 79</span>
@@ -31,30 +31,30 @@
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link-item" data-i18n="navHome">Home</a></li>
+        <li><a href="/" class="nav-link-item" data-i18n="navHome">Home</a></li>
 
         <li class="dropdown-container">
-          <a href="index.html#services-slider" class="dropdown-trigger"><span data-i18n="navServices">Services</span> <i class="fas fa-chevron-down"
+          <a href="/#services-slider" class="dropdown-trigger"><span data-i18n="navServices">Services</span> <i class="fas fa-chevron-down"
               style="font-size:0.8em; margin-left:5px;"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="service-details.html?id=vastu" data-i18n="vastu_title">Vastu Consultant</a></li>
-            <li><a href="service-details.html?id=interior" data-i18n="interior_title">Interior Designer</a></li>
-            <li><a href="service-details.html?id=printing" data-i18n="printing_title">Design & Printing</a></li>
-            <li><a href="service-details.html?id=event" data-i18n="event_title">Event Management</a></li>
-            <li><a href="service-details.html?id=photography" data-i18n="photography_title">Photography</a></li>
-            <li><a href="service-details.html?id=prewedding" data-i18n="prewedding_title">Pre Wedding Shoots</a></li>
-            <li><a href="service-details.html?id=residence-painting" data-i18n="residence_painting_title">Residence Painting</a></li>
-            <li><a href="service-details.html?id=commercial-painting" data-i18n="commercial_painting_title">Commercial Painting</a></li>
-            <li><a href="service-details.html?id=legal" data-i18n="legal_title">Legal Advice</a></li>
+            <li><a href="/service-details.html?id=vastu" data-i18n="vastu_title">Vastu Consultant</a></li>
+            <li><a href="/service-details.html?id=interior" data-i18n="interior_title">Interior Designer</a></li>
+            <li><a href="/service-details.html?id=printing" data-i18n="printing_title">Design & Printing</a></li>
+            <li><a href="/service-details.html?id=event" data-i18n="event_title">Event Management</a></li>
+            <li><a href="/service-details.html?id=photography" data-i18n="photography_title">Photography</a></li>
+            <li><a href="/service-details.html?id=prewedding" data-i18n="prewedding_title">Pre Wedding Shoots</a></li>
+            <li><a href="/service-details.html?id=residence-painting" data-i18n="residence_painting_title">Residence Painting</a></li>
+            <li><a href="/service-details.html?id=commercial-painting" data-i18n="commercial_painting_title">Commercial Painting</a></li>
+            <li><a href="/service-details.html?id=legal" data-i18n="legal_title">Legal Advice</a></li>
           </ul>
         </li>
 
-        <li><a href="index.html#about" class="nav-link-item" data-i18n="navAbout">About Us</a></li>
-        <li class="mobile-only"><a href="contact.html" class="nav-link-item" data-i18n="navContact">Contact Us</a></li>
+        <li><a href="/#about" class="nav-link-item" data-i18n="navAbout">About Us</a></li>
+        <li class="mobile-only"><a href="/contact.html" class="nav-link-item" data-i18n="navContact">Contact Us</a></li>
       </ul>
 
       <div class="header-actions">
-        <a href="contact.html" class="btn-primary" data-i18n="contactUs">Contact Us</a>
+        <a href="/contact.html" class="btn-primary" data-i18n="contactUs">Contact Us</a>
 
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="en">EN</button>
@@ -144,8 +144,8 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#" class="logo-footer">
-            <img src="images/logo.jpg" alt="Shrimant Logo" class="footer-logo-img">
+          <a href="/" class="logo-footer">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Shrimant Logo" class="footer-logo-img">
             <div class="footer-brand-text">
               <h2>Shrimant</h2>
               <p>Multi Facilities & Services 79</p>
@@ -168,29 +168,29 @@
           <li>
             <p class="footer-list-title" data-i18n="quickLinks">Quick Links</p>
           </li>
-          <li><a href="index.html" class="footer-link" data-i18n="navHome">Home</a></li>
-          <li><a href="index.html#services-slider" class="footer-link" data-i18n="navServices">Services</a></li>
-          <li><a href="index.html#about" class="footer-link" data-i18n="navAbout">About Us</a></li>
-          <li><a href="contact.html" class="footer-link" data-i18n="navContact">Contact</a></li>
+          <li><a href="/" class="footer-link" data-i18n="navHome">Home</a></li>
+          <li><a href="/#services-slider" class="footer-link" data-i18n="navServices">Services</a></li>
+          <li><a href="/#about" class="footer-link" data-i18n="navAbout">About Us</a></li>
+          <li><a href="/contact.html" class="footer-link" data-i18n="navContact">Contact</a></li>
         </ul>
 
         <ul class="footer-list">
           <li>
             <p class="footer-list-title" data-i18n="company">Company</p>
           </li>
-          <li><a href="privacy-policy.html" class="footer-link" data-i18n="privacyPolicy">Privacy Policy</a></li>
-          <li><a href="terms-and-conditions.html" class="footer-link" data-i18n="termsConditions">Terms & Conditions</a></li>
-          <li><a href="cookie-policy.html" class="footer-link" data-i18n="cookiePolicy">Cookie Policy</a></li>
-          <li><a href="careers.html" class="footer-link" data-i18n="careers">Careers</a></li>
+          <li><a href="/privacy-policy.html" class="footer-link" data-i18n="privacyPolicy">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions.html" class="footer-link" data-i18n="termsConditions">Terms & Conditions</a></li>
+          <li><a href="/cookie-policy.html" class="footer-link" data-i18n="cookiePolicy">Cookie Policy</a></li>
+          <li><a href="/careers.html" class="footer-link" data-i18n="careers">Careers</a></li>
         </ul>
 
         <ul class="footer-list">
           <li>
             <p class="footer-list-title" data-i18n="footerWorkerTerms">Worker Terms</p>
           </li>
-          <li><a href="code-of-conduct.html" class="footer-link" data-i18n="footerConduct">Code of Conduct</a></li>
-          <li><a href="worker-terms.html" class="footer-link" data-i18n="footerWorkerTerms">Worker Terms</a></li>
-          <li><a href="payment-policy.html" class="footer-link" data-i18n="footerPaymentPolicy">Payment Policy</a></li>
+          <li><a href="/code-of-conduct.html" class="footer-link" data-i18n="footerConduct">Code of Conduct</a></li>
+          <li><a href="/worker-terms.html" class="footer-link" data-i18n="footerWorkerTerms">Worker Terms</a></li>
+          <li><a href="/payment-policy.html" class="footer-link" data-i18n="footerPaymentPolicy">Payment Policy</a></li>
         </ul>
 
         <ul class="footer-list">
@@ -226,6 +226,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

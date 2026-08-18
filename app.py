@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, render_template, url_for
 import os
 from dotenv import load_dotenv
 from supabase import create_client, Client
@@ -9,7 +9,7 @@ import requests
 
 load_dotenv()
 
-app = Flask(__name__, static_url_path='', static_folder='.', template_folder='.')
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 # Supabase Configuration
 SUPABASE_URL = os.getenv('SUPABASE_URL')
@@ -72,11 +72,20 @@ def upload_file_to_storage(file, key, form_data):
 
 @app.route('/')
 def home():
-    return send_from_directory('.', 'index.html')
+    return render_template('index.html')
 
 @app.route('/<path:path>')
-def serve_static(path):
-    return send_from_directory('.', path)
+def serve_page(path):
+    # Remove leading/trailing slashes and .html extension for proper template matching
+    template_name = path.rstrip('/').lstrip('/')
+    if not template_name.endswith('.html'):
+        template_name += '.html'
+    
+    try:
+        return render_template(template_name)
+    except:
+        # If template not found, try serving as static file
+        return send_from_directory('static', path) if path.startswith('static/') else ("Not Found", 404)
 
 # --- WORKER REGISTRATION ROUTE ---
 @app.route('/api/submit-worker-registration', methods=['POST'])
